@@ -32,6 +32,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
     NSString *path = command.arguments[0];
     NSString *uti = command.arguments[1];
+    NSString *title = command.arguments[2];
     if (!uti || (NSNull*)uti == [NSNull null]) {
         NSArray *dotParts = [path componentsSeparatedByString:@"."];
         NSString *fileExt = [dotParts lastObject];
@@ -58,7 +59,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         self.controller = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
         self.controller.delegate = self;
-        self.controller.name = @"Apri";
+        self.controller.name = title;
         //self.controller.UTI = uti;
 
         CDVPluginResult* pluginResult = nil;
