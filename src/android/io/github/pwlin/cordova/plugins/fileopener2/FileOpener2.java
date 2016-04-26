@@ -23,6 +23,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 package io.github.pwlin.cordova.plugins.fileopener2;
 
 import java.io.File;
+import java.net.URLDecoder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -85,6 +86,7 @@ public class FileOpener2 extends CordovaPlugin {
 			CordovaResourceApi resourceApi = webView.getResourceApi();
 			Uri fileUri = resourceApi.remapUri(Uri.parse(fileArg));
 			fileName = this.stripFileProtocol(fileUri.toString());
+			fileName = URLDecoder.decode(fileName, "UTF-8");
 		} catch (Exception e) {
 			fileName = fileArg;
 		}
