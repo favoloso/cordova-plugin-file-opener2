@@ -31,7 +31,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 - (void) open: (CDVInvokedUrlCommand*)command {
 
-	NSString *path = [[command.arguments objectAtIndex:0] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	NSString *path = [command.arguments objectAtIndex:0]; 
 	NSString *contentType = [command.arguments objectAtIndex:1];
   NSString *title = [command.arguments objectAtIndex:2];
 	BOOL showPreview = YES;
